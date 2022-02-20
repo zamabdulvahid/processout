@@ -44,13 +44,13 @@ describe('FormFeedbackComponent', () => {
       expect(component.feedbackForm.valid).toBeFalsy();
     });
 
-    /*it('should set form to be valid', () => {
+    it('should set form to be valid', () => {
       component.feedbackForm.controls['name'].setValue('Zam Abdul Vahid');
       component.feedbackForm.controls['email'].setValue('mail2zam@gmail.com');
       component.feedbackForm.controls['rating'].setValue(5);
       component.feedbackForm.controls['comment'].setValue('This is my comment for the product');
       expect(component.feedbackForm.valid).toBeTruthy();
-    });*/
+    });
 
     it('should set form submitted to true', () => {
       spyOn(fixture.componentInstance, 'submitFeedback');
@@ -66,6 +66,21 @@ describe('FormFeedbackComponent', () => {
       expect(inc).toHaveBeenCalled();
     });
 
+    it('should get form controls', () => {
+      expect(component.form['name']).toBeTruthy();
+    });
+
+    it('should test feedback is added to array', () => {
+      component.feedbackForm.controls['name'].setValue('Zam Abdul Vahid');
+      component.feedbackForm.controls['email'].setValue('mail2zam@gmail.com');
+      component.feedbackForm.controls['rating'].setValue(5);
+      component.feedbackForm.controls['comment'].setValue('This is my comment for the product');
+      let submitBtn: DebugElement = fixture.debugElement.query(By.css('#btn-submit'));
+      submitBtn.nativeElement.click();
+      fixture.detectChanges();
+      expect(component.data.length).toBeTruthy();
+    });
+
   });
 
   describe('name control field', () => {
@@ -77,10 +92,10 @@ describe('FormFeedbackComponent', () => {
       expect(component.feedbackForm.get('name')?.errors?.['pattern']).toBeTruthy();
     });
 
-    /*it('should test name is valid', () => {
+    it('should test name is valid', () => {
       component.feedbackForm.controls['name'].setValue('Zam Abdul Vahid');
       expect(component.feedbackForm.get('name')?.valid).toBeTruthy();
-    });*/
+    });
 
     it('should test name has minimum length', () => {
       component.feedbackForm.controls['name'].setValue('Za');
