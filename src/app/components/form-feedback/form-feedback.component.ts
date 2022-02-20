@@ -25,7 +25,7 @@ export class FormFeedbackComponent implements OnInit {
 
   configureForm() {
     this.feedbackForm = this.formBuilder.group({
-      name: [{value: null, disabled: false}, [Validators.required, Validators.minLength(3), Validators.pattern('^([a-zA-Z]+\s)*[a-zA-Z]+$')]],
+      name: [{value: null, disabled: false}, [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
       email: [{value: null, disabled: false}, [Validators.required, Validators.email]],
       rating: [{value: null, disabled: false}, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(1), Validators.max(5)]],
       comment: [{value: null, disabled: false}, [Validators.required]]
