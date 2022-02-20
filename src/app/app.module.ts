@@ -4,12 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { FormFeedbackComponent } from './form-feedback/form-feedback.component';
+import { FormFeedbackComponent } from './components/form-feedback/form-feedback.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormFeedbackComponent
+    FormFeedbackComponent,
+    HeaderComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

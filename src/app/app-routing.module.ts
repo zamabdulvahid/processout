@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormFeedbackComponent } from './form-feedback/form-feedback.component';
+import { FormFeedbackComponent } from './components/form-feedback/form-feedback.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/feedback', pathMatch: 'full' },

@@ -1,0 +1,17 @@
+header {
+  padding: .6rem;
+  background: linear-gradient(to top left, #57c4c8, #7e57c2);
+  margin-bottom: 1rem;
+
+  .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: .3rem .6rem;
+    display: inline-block;
+    text-decoration: none;
+
+    img {
+      width: 130px;
+    }
+  }
+}

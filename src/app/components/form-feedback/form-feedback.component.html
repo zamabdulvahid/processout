@@ -1,0 +1,51 @@
+<h1>Product Feedback</h1>
+<section class="feedback-form">
+  <form id="feedbackForm" [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input formControlName="name" placeholder="Your Name" tabindex="1" value="name.value" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['name'].errors }" />
+
+      <div *ngIf="submitted && form['name'].invalid" class="errors">
+        <span *ngIf="form['name'].errors && form['name'].errors['required']">Name field is required</span>
+        <span *ngIf="form['name'].errors && form['name'].errors['min']">Name field should have minimum 3 characters</span>
+        <span *ngIf="form['name'].errors && form['name'].errors['pattern']">Name field should contain only characters & spaces</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input formControlName="email" placeholder="Your Email" tabindex="2" value="email.value" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['email'].errors }" />
+
+      <div *ngIf="submitted && form['email'].invalid" class="errors">
+        <span *ngIf="form['email'].errors && form['email'].errors['required']">Email field is required</span>
+        <span *ngIf="form['email'].errors && form['email'].errors['email']">Please enter a valid email</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <input formControlName="rating" placeholder="Your Rating" tabindex="3" value="rating.value" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['rating'].errors }" />
+
+      <div *ngIf="submitted && form['rating'].invalid" class="errors">
+        <span *ngIf="form['rating'].errors && form['rating'].errors['required']">Rating field is required</span>
+        <span *ngIf="form['rating'].errors && form['rating'].errors['pattern']">Rating field should only contain numbers</span>
+        <span *ngIf="form['rating'].errors && form['rating'].errors['max']">Please enter a value less than or equal to 5</span>
+        <span *ngIf="form['rating'].errors && form['rating'].errors['min']">Please enter a value greater than 0</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <textarea formControlName="comment" placeholder="Your Comment" tabindex="4" value="comment.value" class="form-control" [ngClass]="{ 'is-invalid': submitted && form['comment'].errors }"></textarea>
+      <div *ngIf="submitted && form['comment'].invalid" class="errors">
+        <span *ngIf="form['comment'].errors && form['comment'].errors['required']">Comment field is required</span>
+      </div>
+    </div>
+
+    <button class="" id="btn-submit" tabindex="5" type="submit">Submit</button>
+
+  </form>
+</section>
+
+<app-comments [comments]="data"></app-comments>

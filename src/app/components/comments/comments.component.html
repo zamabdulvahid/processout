@@ -1,0 +1,17 @@
+<h2>Latest Comments</h2>
+
+<section class="comments">
+  <ng-container *ngIf="comments.length">
+    <div *ngFor="let row of comments" class="comment">
+      <h3>{{row.name}}</h3>
+      <label>Email: <a href="mailto:{{row.email}}" title="{{row.email}}">{{row.email}}</a></label>
+      <label>Rating: {{row.rating}}</label>
+      <p>{{row.comment}}</p>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!comments.length">
+    <div>No comments available</div>
+  </ng-container>
+
+</section>
