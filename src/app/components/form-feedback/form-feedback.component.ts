@@ -35,7 +35,7 @@ export class FormFeedbackComponent implements OnInit {
   submitFeedback() {
     this.submitted = true;
     if (this.feedbackForm.valid) {
-      this.data.push(this.feedbackForm.value);
+      this.data.unshift(this.feedbackForm.value);
     }
     return false;
   }
